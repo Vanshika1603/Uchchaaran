@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uchchaaran</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="js/jquery-1.8.2.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/angular.min.js">   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#carouselExampleIndicators').carousel({
+        interval: 1000 // Change slides every 0.5 seconds
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#signupbtn").click(function () {
+        var signupemail = $("#signupemail").val();
+        var signuppwd = $("#signuppwd").val();
+        var utype = $("#utype").val();
+        var url = "/profile-process?signupemail=" + signupemail + "&signuppwd=" + signuppwd + "&utype=" + utype;
+        $.get(url, function (res) {
+          alert("successfully signuped");
+        })
+      })
+
+      $("#loginbtn").click(function () {
+        var loginemail = $("#loginemail").val();
+        var loginpwd = $("#loginpwd").val();
+        var url = "/chklogin?loginemail=" + loginemail + "&loginpwd=" + loginpwd + "&status=" + status;
+        $.getJSON(url, function (jsonarry) {
+          if (jsonarry.length == 0)
+            alert("invalid email or password");
+          else {
+            localStorage.setItem("activeuser", $("#loginemail").val());
+            window.location.href = "/profile-dash.html";
+
+            alert(" welcome to " + jsonarry[0].utype);
+          }
+        })
+      })
+    });
+  </script>
+  <script>
+    
+var input = document.getElementById("loginpwd");
+    input.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("loginbtn").click();
+      }
+    });
+    </script>
+</head>
+<body style="background-color: #FAF0E6;" id="Homepage">
+  <div>
+    <nav  class="navbar" style="background-color: #5C5470; height: 100px ;"   >
+      <div class="container">
+        <img src="image/logoo-removebg-preview.png" style="border-radius: 50%;" height="80px" width="250px" alt="">
+          <span style="color: white;" class="navbar-brand"> <h1>UCHCHAARAN</h1></span>
+          <form class="d-flex" role="search">
+            <form class="container-fluid justify-content-start">
+              <button class="btn btn-outline-light me-2" style="width: 120px; height: 40px;" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</button>
+              <button class="btn btn-outline-light me-2" style="width: 120px; height: 40px;" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            </form>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+ <div style="margin-left: 50px; margin-right: 50px;">
+   <div style="margin-top: 5px;">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner" >
+        <div class="carousel-item active">
+          <img src="image/swastik-arora.jpg" style="height: 700px; width: 60%; margin-top: 5px; " class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="image/larm-rmah.jpg" style="height: 700px; width: 60%; margin-top: 5px;" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="image/loren-joseph.jpg" style="height: 700px; width: 60%; margin-top: 5px;" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div>
+    <div class="alert" style=" background-color: #5C5470; border-radius: 0%; margin-top: 5px;" role="alert">
+      <center>
+        <h3 style="color: white;">Our Mission And Visionary</h3>
+      </center>
+    </div>
+  </div>
+
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card" style="width: 25rem; margin: 50px;">
+          <!-- <img src="pictures/boy doctor cartoon.png" class="card-img-top" style="height: 230px;" alt="..."> -->
+          <div class="card-body">
+            <!-- <h5 class="card-title">
+              <center>Donate Medicine</center>
+            </h5> -->
+            <p class="card-text">
+              <center> We are dedicated to helping people of all ages improve their speech and communication skills. We understand that misarticulation can be a challenging condition, but we believe that everyone has the potential to overcome their speech challenges and live their lives to the fullest.
+
+                Our website is a comprehensive resource for misarticulation therapy, providing accurate and up-to-date information about the condition, as well as engaging and interactive activities to help people practice their speech skills. We also offer a supportive community where people can connect with others who understand their challenges.
+                </center>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="width: 25rem; margin: 50px;">
+          <!-- <img src="pictures/nusrse 2 cartoon.png" style="height: 230px;" class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <!-- <h5 class="card-title">
+              <center>Get Medicine for free</center>
+            </h5> -->
+            <p class="card-text">
+              <center> Information about misarticulation: We provide comprehensive information about misarticulation, including what it is, how it is caused, and how it is treated (American Speech-Language-Hearing Association, 2023).
+                Speech therapy activities: We offer a variety of engaging and interactive speech therapy activities to help people practice their speech skills. Our activities are designed for people of all ages and abilities, and they can be used in the comfort of your own home.
+                Community forum: We have a supportive community forum where people with misarticulation can connect with others who understand their challenges.
+                </center>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="width: 25rem; margin: 50px;">
+          <!-- <img src="pictures/doctor cartoon.png" style="height: 230px;"  class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <!-- <h5 class="card-title">
+              <center>Our Mission</center> -->
+            <!-- </h5> -->
+            <p class="card-text">
+              <center> 
+                To be the leading online resource for misarticulation therapy, providing comprehensive and informative information to help people of all ages improve their speech and communication skills.
+                To help people with misarticulation overcome their speech challenges and live their lives to the fullest. We do this by providing:
+
+                Accurate and up-to-date information about misarticulation therapy
+                Engaging and interactive activities to help people practice their speech skills
+                A supportive community where people can connect with others who understand their challenges
+                What You Can Find on Our Website
+                                
+              </center>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="alert " style="background-color: #5C5470; border-radius: 0%;" role="alert">
+      <center>
+        <h3 style="color: white;">Meet the Developers</h3>
+      </center>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <center>
+          <div class="card">
+
+            <div class="card-body">
+              <table>
+                <tr>
+                  <td>
+                    <img src="image/image-removebg-preview.png" style="height: 200px; width: 200px; border-radius: 50%;"
+                      class="card-img-top" alt="...">
+                  </td>
+                  <td>
+                    <p class="card-text"><b>Name:</b> Vanshika <br> <b>UID:</b> 21BCS8532 <br> <b>College:</b> Chandigarh University </p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </center>
+      </div>
+      <div class="col-md-6">
+        <center>
+          <div class="card">
+            <div class="card-body">
+              <table>
+                <tr>
+                  <td>
+                    <img src="image/Screenshot_20230920-222915_Snapchat-removebg-preview.png" style="height: 200px; width: 200px; border-radius: 50%;"
+                      class="card-img-top" alt="...">
+                  </td>
+                  <td>
+                    <p class="card-text"><b>Name:</b>  Kanishk Nayak  <br> <b>UID:</b> 21BCS8240 <br> <b>College:</b> Chandigarh University</p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </center>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+          <center>
+            <div class="card">
+  
+              <div class="card-body">
+                <table>
+                  <tr>
+                    <td>
+                      <img src="image/chanchal-removebg-preview.png"style="height: 200px; width: 200px; border-radius: 50%;"
+                        class="card-img-top" alt="...">
+                    </td>
+                    <td>
+                      <p class="card-text"><b>Name:</b> Chanchal <br> <b>UID:</b> 21BCS8459 <br> <b>College:</b> Chandigarh University</p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </center>
+        </div>
+        <div class="col-md-6">
+          <center>
+            <div class="card">
+              <div class="card-body">
+                <table>
+                  <tr>
+                    <td>
+                      <img src="image/samm-removebg-preview.png"style="height: 200px; width: 200px; border-radius: 50%;"
+                        class="card-img-top" alt="...">
+                    </td>
+                    <td>
+                      <p class="card-text"><b>Name:</b> Samyak Jain <br> <b>UID:</b> 21BCS8504 <br> <b>College:</b> Chandigarh University</p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <center>
+            <div class="card">
+  
+              <div class="card-body">
+                <table>
+                  <tr>
+                    <td>
+                      <img src="image/annjan.png" style="height: 200px; width: 200px; border-radius: 50%;"
+                        class="card-img-top" alt="...">
+                    </td>
+                    <td>
+                      <p class="card-text"><b>Name:</b> Annjan <br> <b>UID:</b> 21BCS7766 <br> <b>College:</b> Chandigarh University</p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </center>
+        </div>
+        <div class="col-md-6">
+          <center>
+            <div class="card">
+              <div class="card-body">
+                <table>
+                  <tr>
+                    <td>
+                      <img src="image/shreshth.png" style="height: 200px; width: 200px; border-radius: 50%;"
+                        class="card-img-top" alt="...">
+                    </td>
+                    <td>
+                      <p class="card-text"><b>Name:</b> Shreshth <br> <b>UID:</b> 21BCS7800 <br> <b>College:</b> Chandigarh University</p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+  </div>
+  <div class="alert alert-secondary mt-4" style="border-radius: 0%;" style="color: #B9B4C7;">
+    <center><p>Copyright &copy; 2023 <b>Uchchaaran</b> | All Rights &reg; Reserved</p></center>
+  </div>
+
+ </div>
+  <!-- ------------------------------------------sign up modal----------------------------------------------- -->
+  <form method="post" enctype="multipart/form-data">
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" style="color: #957DAD;" id="signup">SIGN-UP</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-floating">
+              <input type="email" class="form-control" required id="signupemail" name="signupemail"
+                placeholder="name@example.com">
+              <label for="floatingInput">Email address</label>
+              <div><label class="form-label" id="errEmail"></label>
+              </div>
+            </div>
+            <div class="form-floating mb-4">
+              <input type="password" class="form-control" required id="signuppwd" name="signuppwd"
+                placeholder="Password">
+              <label for="floatingPassword">Password</label>
+            </div>
+           
+          </div>
+          <div class="modal-footer">
+            <button id="signupbtn" style="background-color: #957DAD; color: white;"  class="btn me-2" formaction="/profile-process" type="button"
+              data-bs-toggle="modal">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- ----------------------------------------login modal--------------------------------------------- -->
+  <form>
+    <div class="modal fade" method="post" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" style="color: #957DAD;"  id="exampleModalLabel">LOGIN</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="loginemail" placeholder="name@example.com">
+              <label for="floatingInput">Email address</label>
+              <label class="form-label" id="errEmail"></label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="loginpwd" placeholder="Password">
+              <label for="floatingPassword">Password</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn me-2" style="background-color: #957DAD; color: white;" formaction="/chklogin" type="button" id="loginbtn"
+              data-bs-toggle="modal" >Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>

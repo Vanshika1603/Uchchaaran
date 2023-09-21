@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uchchaaran Parents Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="js/jquery-1.8.2.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/angular.min.js">   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>$(document).ready(function () {
+    $("#logout").click(function () {
+
+      localStorage.removeItem("#activeuser");
+      window.location.replace("/index.html");
+    })
+    $("#btnSubmit").click(function () {
+            window.location.replace("/quiz-dash.html");
+        })  
+    })
+        //     var activeuser = localStorage.getItem("activeuser");
+        //     // alert(activeuser);
+        //     // $("#emailid").val(activeuser).prop("readonly", true);
+        //     // $("#btnSubmit").click(function () {
+        //         // var emailid = $("#emailid").val();
+        //         // //alert(emailid);
+        //         // if (activeuser == null) {
+        //         //     localStorage.removeItem("activeuser");
+        //         //     window.localStorage.replace("/index.html");
+        //         // }
+        //         // var url = "/get-details-search?emailid=" + emailid;
+
+        //         $.getJSON(url, function (responseKuchJSONAryObject) {
+        //           alert("hcdjhbdc");
+        //             // if (responseKuchJSONAryObject.length == 0)
+        //             //     alert("Invalid ID");
+        //             // else {
+        //                 // alert(JSON.stringify(responseKuchJSONAryObject));
+
+        //                 $("#name").val(responseKuchJSONAryObject[0].name);
+        //                 $("#Age").val(responseKuchJSONAryObject[0].Age);
+        //                 $("#fathersname").val(responseKuchJSONAryObject[0].fathersname);
+        //                 $("#mothersname").val(responseKuchJSONAryObject[0].mothersname);
+        //                 $("#birthday").val(responseKuchJSONAryObject[0].birthday);
+        //                 $("#contact").val(responseKuchJSONAryObject[0].contact);
+        //                 // $("#prevproofpic").prop("src", "proofpic/" + responseKuchJSONAryObject[0].proofpic);
+        //                 // $("#prevprofilepic").prop("src", "profilepic/" + responseKuchJSONAryObject[0].profilepic);
+        //                 $("#Blood").val(responseKuchJSONAryObject[0].Blood);
+        //                 $("#City").val(responseKuchJSONAryObject[0].City);
+        //                 $("#State").val(responseKuchJSONAryObject[0].State);
+
+        //             }
+        //         )
+        //     });
+        // // })
+
+     
+    
+</script>
+</head>
+
+<body id="Homepage">
+  <div>
+    <nav class="navbar" style="background-color: #957DAD; height: 100px ;">
+      <div class="container">
+        <img src="image/logoo-removebg-preview.png" style="border-radius: 50%;" height="80px" width="250px" alt="">
+        <span style="color: white;" class="navbar-brand">
+          <h1>UCHCHAARAN</h1>
+        </span>
+        <form class="d-flex" role="search">
+          <form class="d-flex" role="search">
+            <form class="container-fluid justify-content-start">
+              <!-- <button class="btn btn-outline-light me-2" style="width: 120px; height: 40px;" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</button> -->
+              <button class="btn btn-outline-light me-2" style="width: 120px; height: 40px;" type="button"
+                data-bs-toggle="modal" id="logout" name="logout" value="logout" data-bs-target="">Logout</button>
+            </form>
+          </form>
+      </div>
+  </div>
+  </nav>
+  </div>
+  <div>
+    <br><br>
+  </div>
+  <div class="container">
+    <form method="post" style="margin-left: 15%;" class="row g-3" enctype="multipart/form-data">
+
+        <div class="col-md-2" style="text-align: Left;">
+            <label for="Child's Name" class="form-label">Child's Name</label>
+           
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="name" id="name">
+        </div>
+        
+        <div class="col-md-4"></div>
+
+        <div class="col-md-2" style="text-align: Left;">
+            <label for="name" class="form-label">Age of Child</label>
+           
+        </div>
+        <div class="col-md-6">
+            <!-- <input type="text" class="form-control" name="name" id="name"> -->
+            <select id="Age" name="Age" class="form-select" value="Age">
+              <option value="" disabled >Select Age in years</option>
+              
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+        </div>
+        <div class="col-md-4"></div>
+        <!-- <div class="col-md-4"></div> -->
+
+
+        <div class="col-md-2" style="text-align: Left;">
+            <label for="fathersname" class="form-label">Father's Name</label>
+           
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="fathersname" id="fathersname">
+        </div>
+        <div class="col-md-4"></div>
+        <!-- <div class="col-md-4"></div> -->
+
+
+        <div class="col-md-2" style="text-align: Left;">
+            <label for="mothersname" class="form-label">Mother's Name</label>
+           
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="mothersname" id="mothersname">
+        </div>
+        <div class="col-md-4"></div>
+        <!-- <div class="col-md-4"></div> -->
+
+
+        <div class="col-md-2" style="text-align: Left;">
+            <label for="birthday" class="form-label">Date of Birth Of Child</label>
+           
+        </div>
+        <div class="col-md-6">
+            <!-- <input type="text" class="form-control" name="name" id="name"> -->
+            <!-- <label for="birthday">Birthday:</label> -->
+  <input type="date" class="form-control" id="birthday" name="birthday">
+        </div>
+        <div class="col-md-4"></div>
+        <!-- <div class="col-md-4"></div> -->
+
+
+        <div class="col-md-2" style="text-align: Left;">
+            <label for="contact" class="form-label">Parent's Contact</label>
+           
+        </div>
+        <div class="col-md-6">
+            <input type="tel" class="form-control" name="contact" pattern="[0-9]{5}-[0-9]{5}" id="contact">
+        </div>
+        <div class="col-md-4"></div>
+        <!-- <div class="col-md-4"></div> -->
+<!-- 
+        
+        <div class="col-md-2" style="text-align: Left;">
+            <label for="Blood" class="form-label">Blood Group</label>
+           
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="Blood"  id="Blood">
+        </div>
+        <div class="col-md-4"></div>
+ -->
+
+        
+        <div class="col-md-2" style="text-align: Left;">
+            <label for="City" class="form-label">City</label>
+           
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="City" id="City">
+        </div>
+        <div class="col-md-4"></div>
+
+
+        
+        <div class="col-md-2" style="text-align: Left;">
+            <label for="State" class="form-label">State</label>
+           
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="State" id="State">
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-8 "></div>
+        <div class="col-md-2 " style="align-items: right;">
+          <label for="Submit"  class="form-label"> &nbsp;</label> <button class="btn me-2" style="width: 120px; height: 40px;" type="button" style="background-color: #957DAD;"
+           id="btnSubmit" name="btnSubmit" value="btnSubmit" data-bs-target="">Submit</button>
+      </div>
+        </div>
+        <br><br><br><br>
+    </form>
+    
+</div>
