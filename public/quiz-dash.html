@@ -17,26 +17,14 @@
   <script src="js/angular.min.js">   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script>
-    $(document).ready(function () {
-      $("#logout").click(function () {
+    $("#logout").click(function () {
 
-        localStorage.removeItem("#activeuser");
-        window.location.replace("/index.html");
-      })
-      
-      $("#quiz-dash").click(function () {
-        var loginemail = $("#loginemail").val();
-        var ans1 = $("#ans1").val();
-        var ans2 = $("#ans2").val();
-        var ans3 = $("#ans3").val();
-        var ans4 = $("#ans4").val();
-        var ans5 = $("#ans5").val();
-
-        $.get(url, function (res) {
-          alert("successfully signuped");
-        })
-      })
+      localStorage.removeItem("#activeuser");
+      window.location.replace("/index.html");
     })
+    $("#save").click(function () {
+      window.location.href = "/beg-intermediate.html";
+    })  
   </script>
 </head>
 
@@ -65,9 +53,9 @@
   </div>
   <div style="margin-left:10%; margin-right: 10%;" class="container">
     <form method="post" class="row g-3" enctype="multipart/form-data">
-      
+
       <img src="image/shatriya.jpg" style="height:150px; width: 150px; border-radius: 20%;" alt="">
-      
+
       <div class="col-md-10">
         <label for="ques1" class="form-label"><b>Ques 1: Is the word "क्षत्रिय" pronounced correctly?</b></label><br>
         <input type="radio" id="Yes1" name="ans1" value="Yes">
@@ -77,7 +65,7 @@
       </div>
 
       <img src="image/hathi.jpg" style="height:150px; width: 150px; border-radius: 20%;" alt="">
-      
+
       <div class="col-md-10">
         <label for="ques1" class="form-label"><b>Ques 2: Is the word "हाथी" pronounced correctly?</b></label><br>
         <input type="radio" id="yes2" name="ans2" value="Yes">
@@ -87,18 +75,19 @@
       </div>
 
       <img src="image/tajmahal.webp" style="height:150px; width: 150px; border-radius: 20%;" alt="">
-      
+
       <div class="col-md-10">
-        <label for="ques1" class="form-label"><b>Ques 3: In the sentence "वह ताजमहल के पास रहता है," is there any misarticulation?</b></label><br>
+        <label for="ques1" class="form-label"><b>Ques 3: In the sentence "वह ताजमहल के पास रहता है," is there any
+            misarticulation?</b></label><br>
         <input type="radio" id="Yes3" name="ans3" value="Yes">
         <label for="Yes">Yes</label><br>
         <input type="radio" id="No3" name="ans3" value="No">
         <label for="No">No</label><br>
       </div>
 
-      
+
       <img src="image/drish.webp" style="height:150px; width: 150px; border-radius: 20%;" alt="">
-      
+
       <div class="col-md-10">
         <label for="ques1" class="form-label"><b>Ques 4: Is the word "द्वितीय" pronounced correctly?</b></label><br>
         <input type="radio" id="Yes4" name="ans4" value="Yes">
@@ -107,11 +96,12 @@
         <label for="No">No</label><br>
       </div>
 
-      
+
       <img src="image/khana.jpg" style="height:150px; width: 150px; border-radius: 20%;" alt="">
-      
+
       <div class="col-md-10">
-        <label for="ques1" class="form-label"><b>Ques 5: Is the sound [ख] (as in ख़ाना) pronounced correctly?</b></label><br>
+        <label for="ques1" class="form-label"><b>Ques 5: Is the sound [ख] (as in ख़ाना) pronounced
+            correctly?</b></label><br>
         <input type="radio" id="Yes5" name="ans5" value="Yes">
         <label for="Yes">Yes</label><br>
         <input type="radio" id="No5" name="ans5" value="No">
@@ -119,12 +109,61 @@
       </div>
       <div class="col-md-8 "></div>
       <div class="col-md-2 " style="align-items: right;">
-        <label for="Submit"  class="form-label"> &nbsp;</label>
-        <input type="submit" formaction="/quiz-dash" class="btn form-control" style="background-color: #957DAD;"
-            id="btnSubmit" value="Submit">
-    </div>
+        <label for="Submit" class="form-label"> &nbsp;</label>
+        <input type="submit " data-bs-toggle="modal" data-bs-target="#feedback" class="btn form-control"
+          style="background-color: #957DAD;" id="btnSubmit" value="Submit">
       </div>
-      <br><br><br><br>
+  </div>
+  <br><br><br><br>
 
-    </form>
+  </form>
+  <form>
+    <div class="modal fade" method="post" id="feedback" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" style="color: #957DAD;" id="exampleModalLabel">FEEDBACK</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          
+          <div style="margin-left: 10px; margin-right: 10px; text-align: justify;">
+            <p>
+              <!-- Analyzing feedback for misarticulation in speech assessment or therapy involves assessing various aspects of speech production. Key metrics commonly used include: -->
+<br><b>
+Articulation Accuracy:</b> Assess if target sounds are produced correctly, calculating the percentage of correct productions.
+<br><b>
+Phonetic Transcription:</b> Document and analyze specific phonetic errors using IPA symbols.
+<br><b>
+Error Types: </b>Categorize errors like substitution, distortion, omission, and addition.
+<br><b>
+Phonological Processes:</b> Analyze patterns like final consonant deletion, cluster reduction, and stopping.
+<br><b>
+Speech Intelligibility: </b>Measure how well others understand the speaker, using metrics like Percentage of Consonants Correct (PCC).
+<br><b>
+Stimulability: </b>Determine if the individual can produce the target sound with cues or instruction.
+<br><b>
+Contextual Variability:</b> Analyze errors in specific word positions and contexts.
+<br><b>
+Speech Rate and Fluency:</b> Measure speech rate and fluency disruptions.
+<br><b>
+Voice Onset Time (VOT) and Voice Quality:</b> Assess parameters for specific speech sounds.
+<br><b>
+Syllable Structure and Stress Patterns:</b> Analyze syllable structure and stress.
+<br><b>
+Progress Monitoring:</b> Regularly assess progress to evaluate therapy effectiveness.
+<br><b>
+Subjective Ratings:</b> Gather feedback from individuals, caregivers, or educators to understand the impact of misarticulation.
+<br>
+<!-- Speech-language pathologists use these metrics to tailor treatment plans and provide effective feedback for speech sound disorders. -->
+            </p>
+          </div>
+          <div class="modal-footer">
+            <label for="Submit"  class="form-label"> &nbsp;</label> <button class="btn me-2" style="width: 120px; height: 40px;" type="button" style="color: #957DAD;"
+            id="save" formaction="" name="save" value="save" >Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
   </div>
